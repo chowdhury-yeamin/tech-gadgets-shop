@@ -3,7 +3,7 @@ import img1 from "../../public/only-logo.png";
 
 export default function HeroBanner() {
   return (
-    <div className="hero bg-gray-500 w-7xl rounded-3xl mx-auto p-10 mb-10">
+    <div className="hero bg-gray-500 w-7xl rounded-3xl mx-auto p-10 ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Image
           src={img1}
@@ -11,8 +11,7 @@ export default function HeroBanner() {
           alt="QuantumGear Logo"
         />
         <div>
-          <h1 className="text-5xl font-bold">QuantumGear</h1>
-          <h3>Tech Gadgets Shop</h3>
+          <h1 className="text-3xl font-bold">QuantumGear-Tech Gadgets Shop </h1>
           <p className="py-6">
             At QuantumGear, we believe that technology should empower, simplify,
             and elevate your daily experiences. Founded with a vision to bring

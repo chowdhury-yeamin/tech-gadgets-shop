@@ -27,25 +27,51 @@ export default function Navbar() {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <Link href="/">Home</Link>
-              <Link href="/products">Products</Link>
-              <Link href="/about">About</Link>
+              <Link className="hover:bg-gray-400" href="/">
+                Home
+              </Link>
+              <Link className="hover:bg-gray-400" href="/products">
+                Products
+              </Link>
+              <Link className="hover:bg-gray-400" href="/add-product">
+                Add Product
+              </Link>
+              <Link className="hover:bg-gray-400" href="/manage-products">
+                Manage Products
+              </Link>
+              <Link className="hover:bg-gray-400" href="/about">
+                About
+              </Link>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">QuantumGear</a>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal gap-5">
-            <Link className="hover:bg-gray-400" href="/">Home</Link>
-            <Link className="hover:bg-gray-400" href="/products">Products</Link>
-            <Link className="hover:bg-gray-400" href="/add-product">Add Product</Link>
-            <Link className="hover:bg-gray-400" href="/manage-products">Manage Products</Link>
-            <Link className="hover:bg-gray-400" href="/about">About</Link>
+            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/">
+              Home
+            </Link>
+            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/products">
+              Products
+            </Link>
+            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/add-product">
+              Add Product
+            </Link>
+            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/manage-products">
+              Manage Products
+            </Link>
+            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/about">
+              About
+            </Link>
           </ul>
         </div>
-        <div className="navbar-end"> 
-          <Link className="hover:bg-gray-400 btn" href="/login">Login</Link>
-          <Link className="hover:bg-gray-400 btn" href="/register">Register</Link>
+        <div className="navbar-end">
+          <Link className="hover:bg-gray-400 btn" href="/login">
+            Login
+          </Link>
+          <Link className="hover:bg-gray-400 btn" href="/register">
+            Register
+          </Link>
         </div>
       </div>
     </div>
