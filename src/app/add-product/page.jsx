@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import PrivateRoute from "@/Components/PrivetRoute/PrivetRoute";
+import PrivateRoute from "../../Components/PrivetRoute/PrivetRoute";
 
 export default function AddProductPage() {
   const [formData, setFormData] = useState({
@@ -74,7 +74,7 @@ export default function AddProductPage() {
         specs: [],
       };
 
-      const response = await fetch("http://localhost:5000/products", {
+      const response = await fetch("https://tech-gadgets-shop-server.vercel.app/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

@@ -16,7 +16,7 @@ export default function ProductDetails({ params }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/products/${id}`);
+        const response = await fetch(`https://tech-gadgets-shop-server.vercel.app/products/${id}`);
         if (!response.ok) throw new Error("Product not found");
         const result = await response.json();
         setProduct(result.data);

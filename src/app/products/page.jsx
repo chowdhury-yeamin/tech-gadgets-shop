@@ -13,7 +13,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/products");
+        const response = await fetch("https://tech-gadgets-shop-server.vercel.app/products");
         if (!response.ok) throw new Error("Failed to fetch products");
         const result = await response.json();
         setProducts(result.data || []);

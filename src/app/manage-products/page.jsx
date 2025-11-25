@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Swal from "sweetalert2";
-import PrivateRoute from "@/Components/PrivetRoute/PrivetRoute";
+import PrivateRoute from "../../Components/PrivetRoute/PrivetRoute";
 
 export default function ManageProductsPage() {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,7 @@ export default function ManageProductsPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/products");
+        const response = await fetch("https://tech-gadgets-shop-server.vercel.app/products");
         if (!response.ok) throw new Error("Failed to fetch products");
         const result = await response.json();
         setProducts(result.data || []);
@@ -42,7 +42,7 @@ export default function ManageProductsPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/products/${id}`, {
+      const res = await fetch(`https://tech-gadgets-shop-server.vercel.app/products/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete product");
