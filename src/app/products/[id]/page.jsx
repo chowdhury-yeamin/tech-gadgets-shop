@@ -161,11 +161,6 @@ export default function ProductDetails({ params }) {
               >
                 {addedToCart ? "✓ Added to Cart" : "Add to Cart"}
               </button>
-
-              {/* Share Button */}
-              <button className="btn btn-outline btn-primary w-full hover:bg-primary hover:text-white">
-                Share Product
-              </button>
             </div>
           </div>
 

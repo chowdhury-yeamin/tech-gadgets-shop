@@ -63,9 +63,6 @@ export default function ProductsPage() {
         <div className="text-center max-w-md">
           <div className="text-6xl mb-4">⚠️</div>
           <p className="text-2xl text-red-600 mb-4 font-bold">Error: {error}</p>
-          <p className="text-gray-700 mb-6">
-            Make sure your backend server is running at http://localhost:5000
-          </p>
           <button 
             onClick={() => window.location.reload()} 
             className="btn btn-primary text-white"
@@ -79,7 +76,6 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12">
       <div className="container mx-auto px-4">
-        {/* Page Header */}
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-bold mb-4 text-gray-900">
             Our Products
@@ -91,7 +87,6 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        {/* Search and Filter Section */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border border-gray-200">
           <div className="mb-6">
             <div className="relative">
@@ -100,10 +95,10 @@ export default function ProductsPage() {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="input input-bordered w-full pl-12 text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+                className="input input-bordered w-full pl-12 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary bg-gray-400"
               />
               <svg
-                className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-700"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -118,7 +113,6 @@ export default function ProductsPage() {
             </div>
           </div>
 
-          {/* Category Filter */}
           <div>
             <p className="font-semibold mb-4 text-gray-900">
               Filter by Category
@@ -141,7 +135,6 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* Products Grid */}
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
@@ -150,22 +143,18 @@ export default function ProductsPage() {
                 className="card bg-white shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-200 hover:border-primary"
               >
                 <div className="card-body">
-                  {/* Product Image/Icon */}
                   <div className="text-7xl text-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {product.image || "📦"}
                   </div>
 
-                  {/* Product Title */}
                   <h2 className="card-title text-lg line-clamp-2 text-gray-900 font-bold mb-2">
                     {product.title}
                   </h2>
 
-                  {/* Product Description */}
                   <p className="text-gray-600 text-sm line-clamp-2 mb-4">
                     {product.shortDescription || product.description}
                   </p>
 
-                  {/* Price and Category */}
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-200">
                     <span className="text-3xl font-bold text-primary">
                       ${product.price}
@@ -175,7 +164,6 @@ export default function ProductsPage() {
                     </span>
                   </div>
 
-                  {/* View Details Button */}
                   <div className="card-actions mt-4">
                     <Link
                       href={`/products/${product._id}`}
@@ -202,7 +190,6 @@ export default function ProductsPage() {
             ))}
           </div>
         ) : (
-          // Empty State
           <div className="text-center py-16 bg-white rounded-lg shadow-lg">
             <div className="text-7xl mb-6">🔍</div>
             <p className="text-3xl text-gray-700 mb-2 font-bold">

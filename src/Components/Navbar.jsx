@@ -51,16 +51,28 @@ export default function Navbar() {
             <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/">
               Home
             </Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/products">
+            <Link
+              className="hover:bg-gray-400 px-3 py-2 rounded-2xl"
+              href="/products"
+            >
               Products
             </Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/add-product">
+            <Link
+              className="hover:bg-gray-400 px-3 py-2 rounded-2xl"
+              href="/add-product"
+            >
               Add Product
             </Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/manage-products">
+            <Link
+              className="hover:bg-gray-400 px-3 py-2 rounded-2xl"
+              href="/manage-products"
+            >
               Manage Products
             </Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/about">
+            <Link
+              className="hover:bg-gray-400 px-3 py-2 rounded-2xl"
+              href="/about"
+            >
               About
             </Link>
           </ul>
