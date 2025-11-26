@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { auth, googleProvider } from "../../Firebase/firebase.config";
+import { auth, googleProvider } from "../../src/Firebase/firebase.config"
 import {
   createUserWithEmailAndPassword,
   updateProfile,

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import PrivateRoute from "../../Components/PrivetRoute/PrivetRoute";
+import PrivateRoute from "../../src/Components/PrivetRoute/PrivetRoute";
 
 export default function AddProductPage() {
   const [formData, setFormData] = useState({

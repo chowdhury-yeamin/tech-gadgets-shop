@@ -1,6 +1,5 @@
 "use client";
 
-import Banner3D from "../Components/Banner3D";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -35,8 +34,7 @@ export default function Home() {
 
   return (
     <div className="bg-white min-h-screen text-gray-900">
-      {/* Hero */}
-      
+
       <section className="hero h-[60vh] md:h-[500px] bg-gradient-to-r from-primary via-blue-500 to-secondary text-white flex items-center">
         <div className="container mx-auto px-4 text-center">
           <div className="">

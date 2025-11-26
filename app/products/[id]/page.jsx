@@ -1,10 +1,8 @@
 "use client";
-
 import Link from "next/link";
 import { useState, useEffect, use } from "react";
 
 export default function ProductDetails({ params }) {
-  // FIX: Unwrap the params Promise
   const { id } = use(params);
 
   const [quantity, setQuantity] = useState(1);
