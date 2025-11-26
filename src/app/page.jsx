@@ -1,5 +1,6 @@
 "use client";
 
+import Banner3D from "../Components/Banner3D";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -35,9 +36,10 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen text-gray-900">
       {/* Hero */}
+      
       <section className="hero h-[60vh] md:h-[500px] bg-gradient-to-r from-primary via-blue-500 to-secondary text-white flex items-center">
-        <div className="w-full max-w-5xl mx-auto px-4">
-          <div className="text-center">
+        <div className="container mx-auto px-4 text-center">
+          <div className="">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">
               Welcome to QuantumGear
             </h1>
