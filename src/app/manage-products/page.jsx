@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Swal from "sweetalert2";
-import PrivateRoute from "../../src/Components/PrivetRoute/PrivetRoute";
+import PrivateRoute from "../../Components/PrivetRoute/PrivetRoute";
 
 export default function ManageProductsPage() {
   const [products, setProducts] = useState([]);
