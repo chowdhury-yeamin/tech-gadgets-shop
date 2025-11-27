@@ -5,10 +5,14 @@ import { useState, useEffect } from "react";
 import { auth } from "../Firebase/firebase.config";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import Swal from "sweetalert2";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const pathname = usePathname();
+  const isActive = (path) => pathname === path;
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -40,6 +44,13 @@ export default function Navbar() {
     }
   };
 
+  const linkClasses = (path) =>
+    `px-3 py-2 rounded-2xl  transition-all duration-200 hover:-translate-y-0.5  ${
+      isActive(path)
+        ? "bg-gray-700 text-white"
+        : "hover:bg-gray-800"
+    }`;
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -56,30 +67,35 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
+
+            {/* MOBILE MENU */}
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/">Home</Link>
-              <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/products">Products</Link>
-              <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/add-product">Add Product</Link>
-              <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/manage-products">Manage Products</Link>
-              <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/about">About</Link>
+              <Link className={linkClasses("/")} href="/">Home</Link>
+              <Link className={linkClasses("/products")} href="/products">Products</Link>
+              <Link className={linkClasses("/add-product")} href="/add-product">Add Product</Link>
+              <Link className={linkClasses("/manage-products")} href="/manage-products">Manage Products</Link>
+              <Link className={linkClasses("/about")} href="/about">About</Link>
             </ul>
           </div>
+
           <Link href="/" className="btn btn-ghost text-xl">QuantumGear</Link>
         </div>
 
+        {/* DESKTOP MENU */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-5">
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/">Home</Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/products">Products</Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/add-product">Add Product</Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/manage-products">Manage Products</Link>
-            <Link className="hover:bg-gray-400 px-3 py-2 rounded-2xl" href="/about">About</Link>
+            <Link className={linkClasses("/")} href="/">Home</Link>
+            <Link className={linkClasses("/products")} href="/products">Products</Link>
+            <Link className={linkClasses("/add-product")} href="/add-product">Add Product</Link>
+            <Link className={linkClasses("/manage-products")} href="/manage-products">Manage Products</Link>
+            <Link className={linkClasses("/about")} href="/about">About</Link>
           </ul>
         </div>
 
+        {/* RIGHT SIDE */}
         <div className="navbar-end flex items-center gap-2">
           {user ? (
             <>
@@ -106,19 +122,23 @@ export default function Navbar() {
                     >
                       ✕
                     </button>
+
                     <div className="text-center">
                       <img
                         src={user.photoURL || "/default-avatar.png"}
                         alt="Profile"
                         className="mx-auto rounded-full w-32 h-32 mb-3"
                       />
+
                       <h3 className="font-bold text-lg">{user.displayName || "User"}</h3>
                       <p className="text-gray-500 text-sm">{user.email}</p>
                       <p className="text-gray-400 text-xs mb-4">
                         {user.emailVerified ? "(Verified)" : "(Not Verified)"}
                       </p>
+
                       <Link href="/add-product" className="btn bg-purple-500 w-full mb-2 hover:bg-purple-700">Add Product</Link>
                       <Link href="/manage-products" className="btn bg-purple-500 w-full mb-2 hover:bg-purple-700">Manage Products</Link>
+
                       <button
                         onClick={handleLogout}
                         className="btn bg-blue-500 w-full hover:bg-blue-700"
