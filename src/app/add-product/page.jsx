@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import PrivateRoute from "../../Components/PrivetRoute/PrivetRoute";
+import Swal from "sweetalert2";
 
 export default function AddProductPage() {
   const [formData, setFormData] = useState({
@@ -74,11 +75,14 @@ export default function AddProductPage() {
         specs: [],
       };
 
-      const response = await fetch("https://tech-gadgets-shop-server.vercel.app/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://tech-gadgets-shop-server.vercel.app/products",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -109,7 +113,6 @@ export default function AddProductPage() {
     <PrivateRoute>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12">
         <div className="container mx-auto max-w-3xl px-4">
-          {/* Page Header */}
           <div className="mb-8">
             <Link
               href="/manage-products"
@@ -139,44 +142,22 @@ export default function AddProductPage() {
           </div>
 
           {/* Success Alert */}
-          {submitSuccess && (
-            <div className="alert alert-success shadow-lg mb-6 text-white">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>Product added successfully!</span>
-            </div>
-          )}
+          {submitSuccess &&
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500,
+            })}
 
           {/* Error Alert */}
-          {submitError && (
-            <div className="alert alert-error shadow-lg mb-6 text-white">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>{submitError}</span>
-            </div>
-          )}
+          {submitError &&
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            })}
 
           {/* Form Card */}
           <div className="bg-white rounded-lg shadow-xl p-8 border border-gray-200">
